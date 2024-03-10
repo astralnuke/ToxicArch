@@ -1,5 +1,12 @@
 @import "colors.rasi"
 
+* {
+    background-color: #8bcc6a; /* Color de fondo general */
+    text-color: #111111; /* Color del texto general */
+    border-radius: 2px;
+    padding: 1px;
+}
+
 configuration {
     font:                           "Iosevka Nerd Font 12";
     show-icons:                     false;
@@ -22,7 +29,7 @@ window {
     height:                         25%;
     width:                          15%;
     x-offset:                       -30;
-    
+    y-offset: 55;
 }
 
 prompt {
@@ -100,7 +107,7 @@ element {
 }
 
 element-icon {
-    size:                           24px;
+    size:                           30px;
     border:                         0px;
 }
 
@@ -128,7 +135,6 @@ element selected {
     background-color:               @selected;
     text-color:                     @background;
     border:                  		0px;
-    border-radius:                  10px;
     border-color:                  	@border;
 }
 
