@@ -1,0 +1,151 @@
+#####################
+# Comandos de la pc #
+#####################
+
+# Bloquea la pantalla
+super + shift + l
+	dm-tool lock
+
+########
+# Rofi #
+########
+
+# Abre el buscador de aplicaciones
+super + alt + @space
+	rofi -show drun
+
+# Abre el rofi calc
+super + alt + c
+	rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | xclip"
+
+# Abre el rofi emoji
+super + alt + m
+	rofi -show emoji
+
+# Abre el rofi file browser
+super + alt + f
+	rofi -show file-browser-extended
+
+# Abre el rofi run
+super + alt + p
+	rofi -show run
+
+############
+# Recargas #
+############
+
+# Recarga el archivo sxhkdrc para aplicar los cambios
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#########
+# BSPWM #
+#########
+
+# Reincia el escritorio bspwm
+super + alt + {q, r}
+	bspc {quit, wm -r}
+
+# Cerramos cualquier ventana
+super + w
+	bspc node -k
+
+# Le damo sel foco a la ventana maximizandola 
+super + m
+	bspc desktop -l n
+
+# Cambia el nodo seleccionado por la primera ventana en patalla grande
+super + g
+	bspc node -s biggest.window
+
+########################
+# Estado de la ventana #
+#
+########################
+
+# Cambiamos el estado de la ventana
+# con t ponemos la ventana en su estado normal
+# con s ponemos la ventana en estado flotante
+# con f ponemos la ventana fullscreen
+super + {t, s, f}
+	bspc node -t {tiled, floating, fullscreen}
+
+# Bloquea la ventana para que no pueda cerrarse
+super + ctrl + x
+	bspc node -g locked
+
+#######################
+# Intercambio de foco #
+#######################
+
+# Cambiamos de lugar la ventana de foco con las felchas  
+super + shift + {Left, Down, Up, Right}
+	bspc node -s {west, south, north, east}
+
+# Cambiamos de escritori con n para derecha o shift n para izquierda
+super + {_, shift +}n
+	bspc desktop -f {next, prev}.local
+
+# Movemos el foco de las ventanas del escritorio actual con las flechas
+super + {Left,Down,Up,Right}
+	bspc node -f {west, south, north, east}
+
+##############
+# Preseccion #
+##############
+
+# Preseleccionamos la direccion de la nueva ventana con las flechas
+super + ctrl + {Left, Down, Up, Right}
+	bspc node -p {west,south,north,east}
+
+# Preseleccionamos el tamanio del 1 al 9 partes
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Cancelamos la preseleccion
+super + ctrl + space
+	bspc node -p cancel
+
+#########################
+# Mover y radimensionar #
+#########################
+
+# Expande la ventana en foco con las flechas
+super + alt + {Left, Down, Up, Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Contrae la ventana en foco con las flechas
+super + alt + shift + {Left, Down, Up, Right}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Enviamos la ventana en foco al escritorio correspondiente
+super + {_,shift + }{1-9,0,minus}
+	bspc {desktop -f,node -d} '^{1-9,10,11}'
+
+############################
+# Lanzador de aplicaciones #
+############################
+
+# Abre el navegador
+super + shift + g
+	google-chrome-stable
+
+# Abre VS Code
+super + shift + c
+	code
+
+# Abre Discord
+super + shift + d
+  discord
+
+# Tomar captura de pantalla a eleccion
+super + shift + s
+  scrot -s -o '/home/nuke/Documents/screenshots/screenshot-%Y-%m-%d_%H-%M-%S.png'
+
+# Abre spotify
+super + shift + m
+  spotify
+
+# Abre la terminal
+super + shift + Return
+	kitty
